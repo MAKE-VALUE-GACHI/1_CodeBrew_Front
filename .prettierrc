@@ -1,5 +1,4 @@
 {
-  "jsxBracketSameLine": false,
   "singleAttributePerLine": true,
   "endOfLine": "lf",
   "printWidth": 80,
