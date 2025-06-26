@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import localFont from "next/font/local";
+import "./globals.css";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const pretendard = localFont({
