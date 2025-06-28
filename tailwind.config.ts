@@ -9,8 +9,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
         primary: {
           DEFAULT: "#6356f8",
           50: "#edf0ff",
@@ -35,6 +33,8 @@ const config: Config = {
           800: "#1f2937",
           900: "#111827",
         },
+        white: "#ffffff",
+        background: "#f3f3f3",
         caution: "#e4595e",
       },
       fontSize: {
