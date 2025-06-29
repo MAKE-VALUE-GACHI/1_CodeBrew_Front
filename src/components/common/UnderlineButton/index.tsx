@@ -1,6 +1,9 @@
+import { FontSizeType } from "@/constants/design";
+
 interface ButtonProps {
   type: "passwordReset" | "signupEmail" | "resend";
   text: string;
+  fontSize?: FontSizeType;
   width?: string;
   height?: string;
   disabled?: boolean;
@@ -11,8 +14,9 @@ interface ButtonProps {
 export default function Button({
   type,
   text,
-  width = "w-24",
-  height = "h-24",
+  fontSize = "body-5",
+  width = "w-36",
+  height = "h-12",
   disabled = false,
   onClick,
   className = "",
@@ -37,10 +41,11 @@ export default function Button({
 
   const currentStyle = buttonStyles[type];
   const typeClasses = `${currentStyle.text} ${currentStyle.underline} ${currentStyle.hover}`;
+  const fontSizeClass = `text-${fontSize}`;
 
   const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer underline-offset-4 ${width} ${height}`;
 
-  const finalClasses = `${typeClasses} ${baseClasses} ${className}`;
+  const finalClasses = `${typeClasses} ${fontSizeClass} ${baseClasses} ${className}`;
 
   return (
     <button
