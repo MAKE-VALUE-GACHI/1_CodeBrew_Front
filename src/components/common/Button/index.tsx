@@ -1,3 +1,5 @@
+import { FontSizeType } from "@/constants/design";
+
 interface ButtonProps {
   type:
     | "gnbLogin"
@@ -7,6 +9,7 @@ interface ButtonProps {
     | "basicSmall"
     | "aiRecommend";
   text: string;
+  fontSize?: FontSizeType;
   width?: string;
   height?: string;
   disabled?: boolean;
@@ -17,8 +20,9 @@ interface ButtonProps {
 export default function Button({
   type,
   text,
-  width = "w-24",
-  height = "h-24",
+  fontSize = "body-5",
+  width = "w-36",
+  height = "h-12",
   disabled = false,
   onClick,
   className = "",
@@ -79,10 +83,11 @@ export default function Button({
 
   const currentStyle = buttonStyles[type];
   const typeClasses = `${currentStyle.background} ${currentStyle.text} ${currentStyle.border} ${currentStyle.hover} ${currentStyle.disabled} ${currentStyle.active}`;
+  const fontSizeClass = `text-${fontSize}`;
 
   const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer ${width} ${height}`;
 
-  const finalClasses = `${typeClasses} ${baseClasses} ${className}`;
+  const finalClasses = `${typeClasses} ${fontSizeClass} ${baseClasses} ${className}`;
 
   return (
     <button
