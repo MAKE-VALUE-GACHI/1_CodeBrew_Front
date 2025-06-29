@@ -10,7 +10,7 @@ const CommonNavBar = ({ user }: NavBarProps) => {
         </span>
       </Link>
       <div className='flex items-center gap-10'>
-        <div className='row flex gap-8'>
+        <div className='flex flex-row gap-8'>
           {/* TODO: 각 서비스별 실제 링크 확정 후 href 수정 필요 */}
           <Link href='/'>
             <button className='text-body-4 text-grey-700 transition-colors hover:text-grey-600'>
