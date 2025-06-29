@@ -23,9 +23,13 @@ const CommonToolTip = ({
 
   return (
     <div className='group relative w-max'>
-      <button className='rounded-[8px] bg-grey-800 px-3 py-1.5 text-caption text-white'>
+      <span
+        role='tooltip-trigger'
+        aria-describedby='tooltip-description'
+        className='cursor-pointer rounded-[8px] bg-grey-800 px-3 py-1.5 text-caption text-white transition-colors hover:bg-grey-700'
+      >
         {children}
-      </button>
+      </span>
       <div
         className={`absolute z-10 hidden w-max max-w-xs rounded bg-grey-800 px-3 py-2 text-caption text-white group-hover:block ${getPositionClasses()}`}
       >
