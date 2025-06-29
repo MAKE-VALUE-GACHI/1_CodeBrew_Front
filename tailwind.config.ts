@@ -22,20 +22,20 @@ const config: Config = {
           800: "#3f2aa9",
         },
         grey: {
-          50: "#f9fafb",
-          100: "#f3f4f6",
-          200: "#e5e7eb",
-          300: "#d1d5db",
-          400: "#9ca3af",
-          500: "#6b7280",
-          600: "#4b5563",
-          700: "#374151",
-          800: "#1f2937",
-          900: "#111827",
+          DEFAULT: "#6D6D6D",
+          100: "#E7E7E7",
+          200: "#D1D1D1",
+          300: "#B0B0B0",
+          400: "#888888",
+          500: "#6D6D6D",
+          600: "#4F4F4F",
+          700: "#3D3D3D",
+          800: "#111111",
         },
         white: "#ffffff",
         background: "#f3f3f3",
         caution: "#e4595e",
+        border: "#DDDDDD",
       },
       fontSize: {
         "heading-1": [
@@ -47,7 +47,7 @@ const config: Config = {
           { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "600" },
         ],
         "heading-3": [
-          "34px",
+          "32px",
           { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "600" },
         ],
         "heading-4": [
@@ -63,15 +63,19 @@ const config: Config = {
           { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
         ],
         "body-3": [
-          "16px",
+          "20px",
           { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
         ],
         "body-4": [
-          "14px",
+          "18px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
+        ],
+        "body-5": [
+          "16px",
           { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
         ],
         caption: [
-          "12px",
+          "14px",
           { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "400" },
         ],
       },
