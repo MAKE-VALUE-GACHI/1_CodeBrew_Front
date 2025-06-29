@@ -24,9 +24,9 @@ export default function Button({
       hover: "hover:text-border",
     },
     signupEmail: {
-      text: "text-grey-600",
+      text: "text-grey-700",
       underline: "",
-      hover: "hover:text-grey-600 hover:underline",
+      hover: "hover:text-grey-400 hover:underline",
     },
     resend: {
       text: "text-grey-600",
