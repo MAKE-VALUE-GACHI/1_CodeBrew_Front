@@ -50,12 +50,13 @@ export default function Button({
       active: "",
     },
     basicMiddle: {
-      background: "bg-green-600",
-      text: "text-gray-700",
+      background: "bg-background",
+      text: "text-grey-300",
       border: "",
-      hover: "hover:bg-gray-200",
+      hover: "hover:bg-border",
       disabled: "",
-      active: "active:bg-gray-300",
+      active:
+        "active:bg-white active:text-grey-700 active:border active:border-primary-500",
     },
     basicSmall: {
       background: "bg-blue-600",
