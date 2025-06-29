@@ -32,7 +32,15 @@ export default function Button({
       disabled: "",
       active: "",
     },
-
+    signupLogin: {
+      background: "bg-primary-500",
+      text: "text-white",
+      border: "border border-black",
+      hover: "hover:border-none hover:bg-primary-600",
+      disabled:
+        "disabled:bg-background disabled:border-none disabled:text-gray-300",
+      active: "",
+    },
     checkBasic: {
       background: "bg-yellow-600",
       text: "text-white",
