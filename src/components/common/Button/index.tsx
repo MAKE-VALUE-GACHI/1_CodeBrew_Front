@@ -38,16 +38,15 @@ export default function Button({
       border: "border border-black",
       hover: "hover:border-none hover:bg-primary-600",
       disabled:
-        "disabled:bg-background disabled:border-none disabled:text-gray-300",
+        "disabled:bg-background disabled:border-none disabled:text-grey-300",
       active: "",
     },
     checkBasic: {
-      background: "bg-yellow-600",
+      background: "bg-primary-500",
       text: "text-white",
       border: "",
-      hover: "hover:bg-purple-700",
-      disabled:
-        "disabled:bg-gray-300 disabled:border-gray-300 disabled:text-gray-500",
+      hover: "hover:bg-primary-600",
+      disabled: "disabled:bg-background disabled:text-grey-300",
       active: "",
     },
     basicMiddle: {
