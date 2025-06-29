@@ -3,7 +3,7 @@ import { FontSizeType } from "@/constants/design";
 interface UnderlineButtonProps {
   type: "passwordReset" | "signupEmail" | "resend";
   text: string;
-  fontSize?: FontSizeType;
+  font?: FontSizeType;
   width?: string;
   height?: string;
   disabled?: boolean;
@@ -14,7 +14,7 @@ interface UnderlineButtonProps {
 export default function UnderlineButton({
   type,
   text,
-  fontSize = "body-5",
+  font = "body-5",
   width = "w-36",
   height = "h-12",
   disabled = false,
@@ -41,11 +41,10 @@ export default function UnderlineButton({
 
   const currentStyle = buttonStyles[type];
   const typeClasses = `${currentStyle.text} ${currentStyle.underline} ${currentStyle.hover}`;
-  const fontSizeClass = `text-${fontSize}`;
 
-  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer underline-offset-4 ${width} ${height}`;
+  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer underline-offset-4 ${width} ${height} text-${font}`;
 
-  const finalClasses = `${typeClasses} ${fontSizeClass} ${baseClasses} ${className}`;
+  const finalClasses = `${typeClasses} ${baseClasses} ${className}`;
 
   return (
     <button

@@ -9,7 +9,7 @@ interface ButtonProps {
     | "basicSmall"
     | "aiRecommend";
   text: string;
-  fontSize?: FontSizeType;
+  font?: FontSizeType;
   width?: string;
   height?: string;
   disabled?: boolean;
@@ -20,7 +20,7 @@ interface ButtonProps {
 export default function Button({
   type,
   text,
-  fontSize = "body-5",
+  font = "body-5",
   width = "w-36",
   height = "h-12",
   disabled = false,
@@ -83,11 +83,10 @@ export default function Button({
 
   const currentStyle = buttonStyles[type];
   const typeClasses = `${currentStyle.background} ${currentStyle.text} ${currentStyle.border} ${currentStyle.hover} ${currentStyle.disabled} ${currentStyle.active}`;
-  const fontSizeClass = `text-${fontSize}`;
 
-  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer ${width} ${height}`;
+  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer ${width} ${height} text-${font}`;
 
-  const finalClasses = `${typeClasses} ${fontSizeClass} ${baseClasses} ${className}`;
+  const finalClasses = `${typeClasses} ${baseClasses} ${className}`;
 
   return (
     <button
