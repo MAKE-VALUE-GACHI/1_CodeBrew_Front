@@ -1,21 +1,4 @@
-import { FontSizeType } from "@/constants/design";
-
-interface ButtonProps {
-  type:
-    | "gnbLogin"
-    | "signupLogin"
-    | "checkBasic"
-    | "basicMiddle"
-    | "basicSmall"
-    | "aiRecommend";
-  text: string;
-  font?: FontSizeType;
-  width?: string;
-  height?: string;
-  disabled?: boolean;
-  onClick?: () => void;
-  className?: string;
-}
+import { ButtonProps } from "./type";
 
 export default function Button({
   type,

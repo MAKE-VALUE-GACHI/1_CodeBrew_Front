@@ -1,15 +1,4 @@
-import { FontSizeType } from "@/constants/design";
-
-interface UnderlineButtonProps {
-  type: "passwordReset" | "signupEmail" | "resend";
-  text: string;
-  font?: FontSizeType;
-  width?: string;
-  height?: string;
-  disabled?: boolean;
-  onClick?: () => void;
-  className?: string;
-}
+import { UnderlineButtonProps } from "./type";
 
 export default function UnderlineButton({
   type,
