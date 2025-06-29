@@ -67,10 +67,11 @@ export default function Button({
       active: "",
     },
     aiRecommend: {
-      background: "bg-purple-600",
-      text: "text-white",
-      border: "",
-      hover: "hover:from-purple-600 hover:to-pink-600",
+      background: "bg-white",
+      text: "text-grey-600",
+      border: "border border-primary-100",
+      hover:
+        "hover:bg-primary-50 hover:text-primary-500 hover:border-primary-500",
       disabled: "",
       active: "",
     },
