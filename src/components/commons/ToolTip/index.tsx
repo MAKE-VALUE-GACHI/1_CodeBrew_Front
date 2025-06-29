@@ -23,11 +23,11 @@ const CommonToolTip = ({
 
   return (
     <div className='group relative w-max'>
-      <button className='rounded-[8px] bg-[#111111] px-3 py-1.5 text-caption text-white'>
+      <button className='rounded-[8px] bg-grey-800 px-3 py-1.5 text-caption text-white'>
         {children}
       </button>
       <div
-        className={`absolute z-10 hidden w-max max-w-xs rounded bg-gray-800 px-3 py-2 text-caption text-white group-hover:block ${getPositionClasses()}`}
+        className={`absolute z-10 hidden w-max max-w-xs rounded bg-grey-800 px-3 py-2 text-caption text-white group-hover:block ${getPositionClasses()}`}
       >
         {description}
       </div>
