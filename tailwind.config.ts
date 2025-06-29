@@ -7,44 +7,6 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fonts: {
-      "heading-1": [
-        "40px",
-        { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "600" },
-      ],
-      "heading-2": [
-        "38px",
-        { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "600" },
-      ],
-      "heading-3": [
-        "34px",
-        { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "600" },
-      ],
-      "heading-4": [
-        "28px",
-        { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "600" },
-      ],
-      "body-1": [
-        "28px",
-        { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
-      ],
-      "body-2": [
-        "24px",
-        { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
-      ],
-      "body-3": [
-        "16px",
-        { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
-      ],
-      "body-4": [
-        "14px",
-        { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
-      ],
-      caption: [
-        "12px",
-        { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "400" },
-      ],
-    },
     extend: {
       colors: {
         primary: {
@@ -59,10 +21,8 @@ const config: Config = {
           700: "#4d31d1",
           800: "#3f2aa9",
         },
-        caution: "#e4595e",
         grey: {
           DEFAULT: "#6D6D6D",
-          50: "#FFFFFF",
           100: "#E7E7E7",
           200: "#D1D1D1",
           300: "#B0B0B0",
@@ -72,9 +32,56 @@ const config: Config = {
           700: "#3D3D3D",
           800: "#111111",
         },
+        white: "#ffffff",
+        background: "#f3f3f3",
+        caution: "#e4595e",
+        border: "#DDDDDD",
+      },
+      fontSize: {
+        "heading-1": [
+          "40px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "600" },
+        ],
+        "heading-2": [
+          "38px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "600" },
+        ],
+        "heading-3": [
+          "32px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "600" },
+        ],
+        "heading-4": [
+          "28px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "600" },
+        ],
+        "body-1": [
+          "28px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
+        ],
+        "body-2": [
+          "24px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
+        ],
+        "body-3": [
+          "20px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
+        ],
+        "body-4": [
+          "18px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
+        ],
+        "body-5": [
+          "16px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "500" },
+        ],
+        caption: [
+          "14px",
+          { lineHeight: "1.5", letterSpacing: "-0.01em", fontWeight: "400" },
+        ],
       },
     },
   },
+  plugins: [],
 };
 
 export default config;
