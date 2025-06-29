@@ -1,6 +1,6 @@
 import { FontSizeType } from "@/constants/design";
 
-interface ButtonProps {
+interface UnderlineButtonProps {
   type: "passwordReset" | "signupEmail" | "resend";
   text: string;
   fontSize?: FontSizeType;
@@ -11,7 +11,7 @@ interface ButtonProps {
   className?: string;
 }
 
-export default function Button({
+export default function UnderlineButton({
   type,
   text,
   fontSize = "body-5",
@@ -20,7 +20,7 @@ export default function Button({
   disabled = false,
   onClick,
   className = "",
-}: ButtonProps) {
+}: UnderlineButtonProps) {
   const buttonStyles = {
     passwordReset: {
       text: "text-grey-400",
