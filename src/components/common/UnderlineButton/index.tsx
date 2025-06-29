@@ -29,9 +29,9 @@ export default function Button({
       hover: "hover:text-grey-400 hover:underline",
     },
     resend: {
-      text: "text-grey-600",
+      text: "text-grey-400",
       underline: "underline",
-      hover: "hover:text-grey-600 hover:underline",
+      hover: "hover:text-border",
     },
   };
 
