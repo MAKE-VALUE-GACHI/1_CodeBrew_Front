@@ -1,16 +1,4 @@
-import { FontSizeType } from "@/constants/design";
-
-interface CheckBoxProps {
-  id: string;
-  text: string;
-  font?: FontSizeType;
-  containerWidth?: number;
-  containerHeight?: number;
-  boxSize?: number;
-  isChecked: boolean;
-  onCheck?: () => void;
-  className?: string;
-}
+import { CheckBoxProps } from "./type";
 
 export default function CheckBox({
   id,
