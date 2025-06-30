@@ -64,7 +64,9 @@ export default function DropDown({
           {selected !== null ? items[selected]?.text : placeholder}
         </span>
 
-        <span className='ml-2 flex-shrink-0 text-grey-800'>
+        <span
+          className={`ml-2 flex-shrink-0 text-grey-800 ${isOpen ? "rotate-180" : ""} transition-transform duration-300`}
+        >
           <Image
             src='/icons/under.svg'
             alt='under'
