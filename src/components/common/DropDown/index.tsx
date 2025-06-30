@@ -2,20 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import MenuItem from "../MenuItem";
-import { MenuItemProps } from "../MenuItem/type";
 import Image from "next/image";
-
-interface DropDownProps {
-  type: "basic" | "small";
-  items: Omit<MenuItemProps, "onClick">[];
-  placeholder: string;
-  selectedIndex?: number | null;
-  width?: string;
-  height?: string;
-  font?: MenuItemProps["font"];
-  onSelect?: (index: number) => void;
-  className?: string;
-}
+import { DropDownProps } from "./type";
 
 export default function DropDown({
   type = "basic",
