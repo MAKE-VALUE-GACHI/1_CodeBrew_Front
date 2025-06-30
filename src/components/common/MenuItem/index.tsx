@@ -1,14 +1,4 @@
-import { FontSizeType } from "@/constants/design";
-
-interface MenuItemProps {
-  type: "itemBasic" | "itemSmall";
-  text: string;
-  font?: FontSizeType;
-  width?: string;
-  height?: string;
-  onClick?: () => void;
-  className?: string;
-}
+import { MenuItemProps } from "./type";
 
 export default function MenuItem({
   type,
