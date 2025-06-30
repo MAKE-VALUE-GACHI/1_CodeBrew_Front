@@ -10,7 +10,7 @@ export default function Card({
   className = "",
 }: CardProps) {
   const baseClasses = `flex flex-col  justify-center 
-  rounded-lg bg-primary-50 p-6
+  rounded-lg bg-primary-50 p-6 gap-0.5
   focus:outline-none disabled:cursor-not-allowed truncate ${width} ${height} text-${font}`;
 
   const finalClasses = `${baseClasses} ${className}`;
