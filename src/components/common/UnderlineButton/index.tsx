@@ -31,7 +31,7 @@ export default function UnderlineButton({
   const currentStyle = buttonStyles[type];
   const typeClasses = `${currentStyle.text} ${currentStyle.underline} ${currentStyle.hover}`;
 
-  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer underline-offset-4 ${width} ${height} text-${font}`;
+  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer underline-offset-4 truncate ${width} ${height} text-${font}`;
 
   const finalClasses = `${typeClasses} ${baseClasses} ${className}`;
 

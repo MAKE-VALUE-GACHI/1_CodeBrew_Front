@@ -67,7 +67,7 @@ export default function Button({
   const currentStyle = buttonStyles[type];
   const typeClasses = `${currentStyle.background} ${currentStyle.text} ${currentStyle.border} ${currentStyle.hover} ${currentStyle.disabled} ${currentStyle.active}`;
 
-  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer ${width} ${height} text-${font}`;
+  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer truncate ${width} ${height} text-${font}`;
 
   const finalClasses = `${typeClasses} ${baseClasses} ${className}`;
 

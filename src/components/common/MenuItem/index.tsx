@@ -9,7 +9,7 @@ export default function MenuItem({
   onClick,
   className = "",
 }: MenuItemProps) {
-  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer bg-white text-grey-400 hover:bg-primary-50 ${width} ${height} text-${font} ${type === "itemBasic" && "w-full"}`;
+  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer bg-white text-grey-400 hover:bg-primary-50 truncate  ${width} ${height} text-${font} ${type === "itemBasic" && "w-full"}`;
 
   const finalClasses = ` ${baseClasses} ${className}`;
 
