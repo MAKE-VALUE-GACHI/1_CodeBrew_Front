@@ -3,7 +3,7 @@ import { CheckBoxProps } from "./type";
 export default function CheckBox({
   id,
   text,
-  containerWidth = 48,
+  containerWidth = 128,
   containerHeight = 30,
   boxSize = 32,
   isChecked,
@@ -11,17 +11,27 @@ export default function CheckBox({
   font = "body-4",
   className = "",
 }: CheckBoxProps) {
-  const containerClasses = `flex items-center h-[${containerHeight}px] w-[${containerWidth}px] gap-2 rounded-lg ${className} cursor-pointer`;
-  const inputClasses = `h-[${boxSize}px] w-[${boxSize}px] flex-shrink-0 cursor-pointer appearance-none rounded-lg 
-    ${isChecked ? "checked:bg-[url('/icons/checked.svg')]" : "bg-[url('/icons/uncheck.svg')]"} bg-center bg-no-repeat`;
+  const containerClasses = `flex items-center gap-2 rounded-lg cursor-pointer ${className}`;
+  const inputClasses = `flex-shrink-0 cursor-pointer appearance-none rounded-lg 
+    ${isChecked ? "checked:bg-[url('/icons/checked.svg')]" : "bg-[url('/icons/uncheck.svg')]"} bg-center bg-no-repeat `;
 
   return (
-    <div className={containerClasses + "cursor-pointer"}>
+    <div
+      className={containerClasses + "cursor-pointer"}
+      style={{
+        height: `${containerHeight}px`,
+        width: `${containerWidth}px`,
+      }}
+    >
       <input
         type='checkbox'
         id={id}
         checked={isChecked}
         onChange={onCheck}
+        style={{
+          height: `${boxSize}px`,
+          width: `${boxSize}px`,
+        }}
         className={inputClasses}
       />
       <label htmlFor={id}>
