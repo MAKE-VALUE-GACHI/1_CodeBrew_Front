@@ -3,7 +3,7 @@ import { ToolTipProps } from "@/types/components/commons/ToolTip";
 const CommonToolTip = ({
   children,
   description,
-  position = "top",
+  position = "right",
 }: ToolTipProps) => {
   // position은 'top', 'bottom', 'left', 'right' 중 하나로 설정할 수 있습니다.
   const getPositionClasses = () => {
