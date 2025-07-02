@@ -10,8 +10,8 @@ export default function DropDown({
   items,
   placeholder,
   selectedIndex = null,
-  width = "w-64",
-  height = "h-16",
+  width = 256,
+  height = 64,
   font = "body-5",
   onSelect,
   className = "",
@@ -42,11 +42,13 @@ export default function DropDown({
   return (
     <div
       ref={ref}
-      className={`relative ${type === "basic" ? "w-full" : width} ${className}`}
+      className={`relative ${className}`}
+      style={{ width: `${type === "basic" ? "100%" : `${width}px`}` }}
     >
       <div
-        className={`flex items-center justify-between rounded-xl border border-border bg-white px-6 ${height} cursor-pointer hover:border-primary-500 ${isOpen && "border-primary-500"}`}
+        className={`flex cursor-pointer items-center justify-between rounded-xl border border-border bg-white px-6 hover:border-primary-500 ${isOpen && "border-primary-500"}`}
         onClick={() => setIsOpen(prev => !prev)}
+        style={{ height: `${height}px` }}
       >
         <span className={`text-grey-400 text-${font} w-80% truncate`}>
           {selected !== null ? items[selected]?.text : placeholder}

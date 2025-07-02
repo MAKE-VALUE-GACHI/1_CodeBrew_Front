@@ -5,8 +5,8 @@ export interface DropDownProps {
   items: Omit<MenuItemProps, "onClick">[];
   placeholder: string;
   selectedIndex?: number | null;
-  width?: string;
-  height?: string;
+  width?: number;
+  height?: number;
   font?: MenuItemProps["font"];
   onSelect?: (index: number) => void;
   className?: string;
