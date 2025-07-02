@@ -1,16 +1,9 @@
-import { FontSizeType } from "@/constants/design";
-import Image from "next/image";
+"use client";
 
-interface InputProps {
-  type: "default" | "error";
-  id: string;
-  label: string;
-  placeholder: string;
-  text: string;
-  setText: (text: string) => void;
-  font?: FontSizeType;
-  className?: string;
-}
+import { InputProps } from "@/types/components/commons/input";
+import InputDeleteIcon from "./inputDeleteIcon";
+import InputVisibleIcon from "./inputVisibleIcon";
+import { useState } from "react";
 
 export default function Input({
   type,
@@ -20,8 +13,12 @@ export default function Input({
   text,
   setText,
   font = "body-5",
+  iconType = "text",
+  iconSize = 18,
   className = "",
 }: InputProps) {
+  const [isVisible, setIsVisible] = useState(false);
+
   const inputStyles = {
     default: {
       background: "bg-background",
@@ -38,7 +35,6 @@ export default function Input({
   };
 
   const containerClasses = `flex flex-col gap-2 justify-center text-${font} ${className}`;
-
   const baseClasses = `py-3 px-4 rounded-lg w-full`;
   const currentStyle = inputStyles[type];
   const typeClasses = `${baseClasses} ${currentStyle.background} ${currentStyle.text} ${currentStyle.focus}`;
@@ -58,16 +54,23 @@ export default function Input({
           placeholder={placeholder}
           value={text}
           onChange={e => setText(e.target.value)}
+          type={
+            iconType === "password" ? (isVisible ? "text" : "password") : "text"
+          }
         />
-        <Image
-          src='/icons/circleX.svg'
-          alt='clear'
-          className='absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer'
-          width={18}
-          height={18}
-          style={{ display: text.length === 0 ? "none" : "block" }}
-          onClick={() => setText("")}
-        />
+        {iconType === "text" ? (
+          <InputDeleteIcon
+            iconSize={iconSize}
+            text={text}
+            setText={setText}
+          />
+        ) : (
+          <InputVisibleIcon
+            iconSize={iconSize}
+            isVisible={isVisible}
+            setIsVisible={setIsVisible}
+          />
+        )}
       </div>
     </div>
   );
