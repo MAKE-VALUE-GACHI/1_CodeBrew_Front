@@ -4,8 +4,8 @@ export interface UnderlineButtonProps {
   type: "passwordReset" | "signupEmail" | "resend";
   text: string;
   font?: FontSizeType;
-  width?: string;
-  height?: string;
+  width?: number;
+  height?: number;
   disabled?: boolean;
   onClick?: () => void;
   className?: string;

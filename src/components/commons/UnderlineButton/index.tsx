@@ -4,8 +4,8 @@ export default function UnderlineButton({
   type,
   text,
   font = "body-5",
-  width = "w-36",
-  height = "h-12",
+  width = 144,
+  height = 48,
   disabled = false,
   onClick,
   className = "",
@@ -31,7 +31,7 @@ export default function UnderlineButton({
   const currentStyle = buttonStyles[type];
   const typeClasses = `${currentStyle.text} ${currentStyle.underline} ${currentStyle.hover}`;
 
-  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer underline-offset-4 truncate ${width} ${height} text-${font}`;
+  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer underline-offset-4 truncate text-${font}`;
 
   const finalClasses = `${typeClasses} ${baseClasses} ${className}`;
 
@@ -40,6 +40,7 @@ export default function UnderlineButton({
       className={finalClasses}
       onClick={onClick}
       disabled={disabled}
+      style={{ width: `${width}px`, height: `${height}px` }}
     >
       {text}
     </button>
