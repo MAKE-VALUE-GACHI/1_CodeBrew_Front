@@ -1,10 +1,5 @@
+import { InputDeleteIconProps } from "@/types/components/commons/input/inputDeleteIcon";
 import Image from "next/image";
-
-interface InputDeleteIconProps {
-  iconSize: number;
-  text: string;
-  setText: (text: string) => void;
-}
 
 export default function InputDeleteIcon({
   iconSize,

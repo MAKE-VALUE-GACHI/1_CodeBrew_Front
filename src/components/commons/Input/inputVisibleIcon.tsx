@@ -1,10 +1,5 @@
+import { InputVisibleIconProps } from "@/types/components/commons/input/inputVisibleIcon";
 import Image from "next/image";
-
-interface InputVisibleIconProps {
-  iconSize: number;
-  isVisible: boolean;
-  setIsVisible: (isVisible: boolean) => void;
-}
 
 export default function InputVisibleIcon({
   iconSize,
