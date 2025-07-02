@@ -4,8 +4,8 @@ export default function Button({
   type,
   text,
   font = "body-5",
-  width = "w-36",
-  height = "h-12",
+  width = "144px",
+  height = "48px",
   disabled = false,
   onClick,
   className = "",
@@ -67,7 +67,7 @@ export default function Button({
   const currentStyle = buttonStyles[type];
   const typeClasses = `${currentStyle.background} ${currentStyle.text} ${currentStyle.border} ${currentStyle.hover} ${currentStyle.disabled} ${currentStyle.active}`;
 
-  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer truncate ${width} ${height} text-${font}`;
+  const baseClasses = `flex items-center justify-center rounded-lg focus:outline-none disabled:cursor-not-allowed cursor-pointer truncate text-${font}`;
 
   const finalClasses = `${typeClasses} ${baseClasses} ${className}`;
 
@@ -76,6 +76,7 @@ export default function Button({
       className={finalClasses}
       onClick={onClick}
       disabled={disabled}
+      style={{ width, height }}
     >
       {text}
     </button>
