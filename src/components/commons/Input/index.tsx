@@ -26,15 +26,14 @@ export default function Input({
     default: {
       background: "bg-background",
       text: "text-grey-800 placeholder:text-grey-300",
-      hover: "hover:border-none hover:bg-border",
       focus: "focus:outline focus:outline-2 focus:outline-grey-600",
+      border: "border-b border-border",
     },
     error: {
-      background: "bg-white",
-      border: "border-border",
-      text: "text-grey-400",
-      hover: "",
-      focus: "",
+      background: "bg-caution/10",
+      text: "text-grey-800 placeholder:text-grey-300",
+      focus: "focus:bg-white focus:outline-none",
+      border: "border border-caution",
     },
   };
 
@@ -42,7 +41,7 @@ export default function Input({
 
   const baseClasses = `py-3 px-4 rounded-lg w-full`;
   const currentStyle = inputStyles[type];
-  const typeClasses = `${baseClasses} ${currentStyle.background} ${currentStyle.text} ${currentStyle.hover} ${currentStyle.focus}`;
+  const typeClasses = `${baseClasses} ${currentStyle.background} ${currentStyle.text} ${currentStyle.focus}`;
 
   return (
     <div className={containerClasses}>
@@ -52,7 +51,7 @@ export default function Input({
       >
         {label}
       </label>
-      <div className='relative rounded-lg border-b border-border'>
+      <div className={`relative rounded-lg ${currentStyle.border}`}>
         <input
           id={id}
           className={typeClasses}
