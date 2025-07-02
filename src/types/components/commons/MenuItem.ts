@@ -4,8 +4,8 @@ export interface MenuItemProps {
   type: "basic" | "small";
   text: string;
   font?: FontSizeType;
-  width?: string;
-  height?: string;
+  width?: number;
+  height?: number;
   onClick?: () => void;
   className?: string;
 }
