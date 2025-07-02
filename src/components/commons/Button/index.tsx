@@ -4,8 +4,8 @@ export default function Button({
   type,
   text,
   font = "body-5",
-  width = "144px",
-  height = "48px",
+  width = 144,
+  height = 48,
   disabled = false,
   onClick,
   className = "",
@@ -76,7 +76,7 @@ export default function Button({
       className={finalClasses}
       onClick={onClick}
       disabled={disabled}
-      style={{ width, height }}
+      style={{ width: `${width}px`, height: `${height}px` }}
     >
       {text}
     </button>

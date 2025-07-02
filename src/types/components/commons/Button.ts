@@ -10,8 +10,8 @@ export interface ButtonProps {
     | "aiRecommend";
   text: string;
   font?: FontSizeType;
-  width?: string;
-  height?: string;
+  width?: number;
+  height?: number;
   disabled?: boolean;
   onClick?: () => void;
   className?: string;

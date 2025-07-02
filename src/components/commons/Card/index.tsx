@@ -4,8 +4,8 @@ export default function Card({
   title,
   description,
   font = "caption",
-  width = "400px",
-  height = "96px",
+  width = 400,
+  height = 96,
   onClick,
   className = "",
 }: CardProps) {
@@ -19,7 +19,7 @@ export default function Card({
     <section
       className={finalClasses}
       onClick={onClick}
-      style={{ width, height }}
+      style={{ width: `${width}px`, height: `${height}px` }}
     >
       <strong className='text-primary-800'>{title}</strong>
       <p className='text-grey-600'>{description}</p>
