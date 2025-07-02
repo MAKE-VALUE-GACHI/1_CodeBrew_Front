@@ -1,4 +1,4 @@
-import { MenuItemProps } from "../MenuItem/type";
+import { MenuItemProps } from "./MenuItem";
 
 export interface DropDownProps {
   type: "basic" | "small";
