@@ -1,4 +1,4 @@
-import { ButtonProps } from "./type";
+import { ButtonProps } from "@/types/components/commons/Button";
 
 export default function Button({
   type,

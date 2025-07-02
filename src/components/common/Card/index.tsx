@@ -1,4 +1,4 @@
-import { CardProps } from "./type";
+import { CardProps } from "@/types/components/commons/Card";
 
 export default function Card({
   title,

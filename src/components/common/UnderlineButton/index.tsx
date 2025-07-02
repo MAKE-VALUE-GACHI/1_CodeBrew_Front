@@ -1,4 +1,4 @@
-import { UnderlineButtonProps } from "./type";
+import { UnderlineButtonProps } from "@/types/components/commons/UnderlineButton";
 
 export default function UnderlineButton({
   type,

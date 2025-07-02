@@ -1,4 +1,4 @@
-import { CheckBoxProps } from "./type";
+import { CheckBoxProps } from "@/types/components/commons/CheckBox";
 
 export default function CheckBox({
   id,

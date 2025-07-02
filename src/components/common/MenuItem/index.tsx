@@ -1,4 +1,4 @@
-import { MenuItemProps } from "./type";
+import { MenuItemProps } from "@/types/components/commons/MenuItem";
 
 export default function MenuItem({
   type,

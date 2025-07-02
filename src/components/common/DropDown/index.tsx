@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import MenuItem from "../MenuItem";
 import Image from "next/image";
-import { DropDownProps } from "./type";
+import { DropDownProps } from "@/types/components/commons/DropDown";
 
 export default function DropDown({
   type = "basic",
