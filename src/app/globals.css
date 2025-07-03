@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gradient-border {
+  position: relative;
+  z-index: 0;
+}
+
+.gradient-border textarea,
+.gradient-border .react-textarea-autosize {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  padding: 1px;
+  background: linear-gradient(135deg, #dee3ff 0%, #a1a7ff 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 0;
+  pointer-events: none;
+}

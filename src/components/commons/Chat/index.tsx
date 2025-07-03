@@ -25,21 +25,23 @@ export default function Chat({
   className = "",
 }: ChatProps) {
   const textareaClass = `
-    resize-none rounded-lg p-4 bg-white/60 placeholder:text-grey-300 text-grey-800 
+    resize-none rounded-lg p-2 bg-white/60 placeholder:text-grey-300 text-grey-800 w-full
     focus:outline-none focus:ring-0 text-${font} ${className}
   `;
 
   return (
-    <TextareaAutosize
-      minRows={minRows}
-      maxRows={maxRows}
-      placeholder={placeholder}
-      className={textareaClass}
-      value={text}
-      onChange={e => setText(e.target.value)}
-      style={{
-        width: `${width}px`,
-      }}
-    />
+    <div
+      className='gradient-border px-2 py-3'
+      style={{ width }}
+    >
+      <TextareaAutosize
+        minRows={minRows}
+        maxRows={maxRows}
+        placeholder={placeholder}
+        className={textareaClass}
+        value={text}
+        onChange={e => setText(e.target.value)}
+      />
+    </div>
   );
 }
