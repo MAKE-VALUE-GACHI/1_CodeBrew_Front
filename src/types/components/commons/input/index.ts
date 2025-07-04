@@ -10,5 +10,6 @@ export interface InputProps {
   font?: FontSizeType;
   iconType?: "text" | "password";
   iconSize?: number;
+  isRequired?: boolean;
   className?: string;
 }

@@ -13,6 +13,7 @@ import { useState } from "react";
  * - text: 오른쪽에 삭제 아이콘이 표시됩니다.
  * - password: 오른쪽에 비밀번호 보기, 가리기 아이콘이 표시됩니다.
  * @param iconSize - 인풋의 아이콘 크기를 설정합니다. 기본은 18px 입니다.
+ * @param isRequired - true인 경우, label 옆에 인디케이터를 나타냅니다.
  * @param className - 인풋의 컨테이너에 적용되는 커스텀 클래스를 설정합니다.
  */
 
@@ -26,6 +27,7 @@ export default function Input({
   font = "body-5",
   iconType = "text",
   iconSize = 18,
+  isRequired = false,
   className = "",
 }: InputProps) {
   const [isVisible, setIsVisible] = useState(false);
@@ -54,8 +56,9 @@ export default function Input({
     <div className={containerClasses}>
       <label
         htmlFor={id}
-        className='cursor-pointer'
+        className='flex cursor-pointer items-center gap-1'
       >
+        {isRequired && <span className='text-primary-500'>*</span>}
         {label}
       </label>
       <div className={`relative rounded-lg ${currentStyle.border}`}>

@@ -138,6 +138,7 @@ export default function ExamplePage() {
         placeholder='이메일을 입력해 주세요.'
         text={text}
         setText={setText}
+        isRequired={true}
       />
 
       {/* ------------------------------ Chat ------------------------------ */}
