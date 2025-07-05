@@ -1,7 +1,33 @@
 import { NavBarProps } from "@/types/components/commons/NavBar";
 import Link from "next/link";
+import Button from "@/components/commons/Button";
+import Image from "next/image";
+
+// 이미지 URL 유효성 검사 함수
+// 유효하지 않은 경우 기본 이미지 반환
+const isValidUrl = (url: string) => {
+  try {
+    new URL(url);
+    return true;
+  } catch {
+    return false;
+  }
+};
 
 const CommonNavBar = ({ user }: NavBarProps) => {
+  // 사용자 이미지 URL이 유효하지 않은 경우 기본 이미지 사용
+  const getImageSrc = () => {
+    if (!user?.imageUrl) return "/icons/profile.png";
+    return isValidUrl(user.imageUrl) ? user.imageUrl : "/icons/profile.png";
+  };
+
+  // TODO: 각 서비스별 실제 링크 확정 후 href 수정 필요
+  const navItems = [
+    { text: "서비스 소개", href: "/" },
+    { text: "하루 메일", href: "/" },
+    { text: "AI 챗봇", href: "/" },
+  ];
+
   return (
     <div className='flex h-20 w-full items-center justify-between border-b border-solid border-background px-4'>
       <Link href='/'>
@@ -11,40 +37,44 @@ const CommonNavBar = ({ user }: NavBarProps) => {
       </Link>
       <div className='flex items-center gap-10'>
         <div className='flex flex-row gap-8'>
-          {/* TODO: 각 서비스별 실제 링크 확정 후 href 수정 필요 */}
-          <Link href='/'>
-            <button className='text-body-4 text-grey-700 transition-colors hover:text-grey-600'>
-              서비스 소개
-            </button>
-          </Link>
-          <Link href='/'>
-            <button className='text-body-4 text-grey-700 transition-colors hover:text-grey-600'>
-              하루 메일
-            </button>
-          </Link>
-          <Link href='/'>
-            <button className='text-body-4 text-grey-700 transition-colors hover:text-grey-600'>
-              AI 챗봇
-            </button>
-          </Link>
+          {navItems.map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+            >
+              <Button
+                type='basicSmall'
+                text={item.text}
+                width={80}
+                height={40}
+                font='body-4'
+              />
+            </Link>
+          ))}
         </div>
-        {/* TODO: 버튼 공통 컴포넌트 개발 후 수정 필요 */}
         <div>
           {user ? (
-            <button className='rounded-full border-2 border-solid border-background px-2 py-2 text-caption transition-colors hover:bg-background'>
-              {
-                <img
-                  src={user.imageUrl || "./icons/profile.png"}
+            // 공통 버튼에 아이콘 버튼이 별도로 없으므로 이대로 유지
+            <Link href='/profile'>
+              <button className='rounded-full border-2 border-solid border-background px-2 py-2 text-caption transition-colors hover:bg-background'>
+                <Image
+                  src={getImageSrc()}
                   alt={user.name || "User"}
-                  className='h-5 w-5'
+                  width={20}
+                  height={20}
+                  className='rounded-full'
                 />
-              }
-            </button>
+              </button>
+            </Link>
           ) : (
             <Link href='/sign-in'>
-              <button className='rounded-md border-2 border-solid border-background px-2 py-2 text-body-5 transition-colors duration-200 hover:bg-background'>
-                로그인/회원가입
-              </button>
+              <Button
+                type='gnbLogin'
+                text='로그인/회원가입'
+                width={120}
+                height={40}
+                font='body-5'
+              />
             </Link>
           )}
         </div>
