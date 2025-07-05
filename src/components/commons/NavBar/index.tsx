@@ -1,8 +1,26 @@
 import { NavBarProps } from "@/types/components/commons/NavBar";
 import Link from "next/link";
 import Button from "@/components/commons/Button";
+import Image from "next/image";
+
+// 이미지 URL 유효성 검사 함수
+// 유효하지 않은 경우 기본 이미지 반환
+const isValidUrl = (url: string) => {
+  try {
+    new URL(url);
+    return true;
+  } catch {
+    return false;
+  }
+};
 
 const CommonNavBar = ({ user }: NavBarProps) => {
+  // 사용자 이미지 URL이 유효하지 않은 경우 기본 이미지 사용
+  const getImageSrc = () => {
+    if (!user?.imageUrl) return "/icons/profile.png";
+    return isValidUrl(user.imageUrl) ? user.imageUrl : "/icons/profile.png";
+  };
+
   return (
     <div className='flex h-20 w-full items-center justify-between border-b border-solid border-background px-4'>
       <Link href='/'>
@@ -46,13 +64,13 @@ const CommonNavBar = ({ user }: NavBarProps) => {
             // 공통 버튼에 아이콘 버튼이 별도로 없으므로 이대로 유지
             <Link href='/profile'>
               <button className='rounded-full border-2 border-solid border-background px-2 py-2 text-caption transition-colors hover:bg-background'>
-                {
-                  <img
-                    src={user.imageUrl || "./icons/profile.png"}
-                    alt={user.name || "User"}
-                    className='h-5 w-5'
-                  />
-                }
+                <Image
+                  src={getImageSrc()}
+                  alt={user.name || "User"}
+                  width={20}
+                  height={20}
+                  className='rounded-full'
+                />
               </button>
             </Link>
           ) : (
