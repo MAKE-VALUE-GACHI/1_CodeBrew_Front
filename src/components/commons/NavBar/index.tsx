@@ -1,6 +1,6 @@
 import { NavBarProps } from "@/types/components/commons/NavBar";
 import Link from "next/link";
-import Button from "../Button";
+import Button from "@/components/commons/Button";
 
 const CommonNavBar = ({ user }: NavBarProps) => {
   return (
