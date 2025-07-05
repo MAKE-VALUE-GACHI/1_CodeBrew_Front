@@ -21,6 +21,13 @@ const CommonNavBar = ({ user }: NavBarProps) => {
     return isValidUrl(user.imageUrl) ? user.imageUrl : "/icons/profile.png";
   };
 
+  // TODO: 각 서비스별 실제 링크 확정 후 href 수정 필요
+  const navItems = [
+    { text: "서비스 소개", href: "/" },
+    { text: "하루 메일", href: "/" },
+    { text: "AI 챗봇", href: "/" },
+  ];
+
   return (
     <div className='flex h-20 w-full items-center justify-between border-b border-solid border-background px-4'>
       <Link href='/'>
@@ -30,34 +37,20 @@ const CommonNavBar = ({ user }: NavBarProps) => {
       </Link>
       <div className='flex items-center gap-10'>
         <div className='flex flex-row gap-8'>
-          {/* TODO: 각 서비스별 실제 링크 확정 후 href 수정 필요 */}
-          <Link href='/'>
-            <Button
-              type='basicSmall'
-              text='서비스 소개'
-              width={80}
-              height={40}
-              font='body-4'
-            />
-          </Link>
-          <Link href='/'>
-            <Button
-              type='basicSmall'
-              text='하루 메일'
-              width={80}
-              height={40}
-              font='body-4'
-            />
-          </Link>
-          <Link href='/'>
-            <Button
-              type='basicSmall'
-              text='AI 챗봇'
-              width={80}
-              height={40}
-              font='body-4'
-            />
-          </Link>
+          {navItems.map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+            >
+              <Button
+                type='basicSmall'
+                text={item.text}
+                width={80}
+                height={40}
+                font='body-4'
+              />
+            </Link>
+          ))}
         </div>
         <div>
           {user ? (
