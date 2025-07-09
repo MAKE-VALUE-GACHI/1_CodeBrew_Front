@@ -1,5 +1,6 @@
 import { SignupButtonProps } from "@/types/components/feature/SignInPage/SignUpButton";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SignupButton({
   type,
@@ -55,15 +56,17 @@ export default function SignupButton({
   const buttonClasses = `${typeClasses} ${baseClasses} ${className}`;
 
   return (
-    <button className={buttonClasses}>
-      <Image
-        src={currentStyle.icon}
-        alt={type}
-        width={iconSize}
-        height={iconSize}
-        className='mb-0.5'
-      />
-      <span>{currentStyle.phrase}</span>
-    </button>
+    <Link href={`/sign-in/${type}`}>
+      <button className={buttonClasses}>
+        <Image
+          src={currentStyle.icon}
+          alt={type}
+          width={iconSize}
+          height={iconSize}
+          className='mb-0.5'
+        />
+        <span>{currentStyle.phrase}</span>
+      </button>
+    </Link>
   );
 }
