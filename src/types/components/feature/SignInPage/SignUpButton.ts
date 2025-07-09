@@ -4,6 +4,7 @@ export interface SignupButtonProps {
   type: ButtonType;
   font?: FontSizeType;
   iconSize?: number;
+  className?: string;
 }
 
 export type ButtonType = "kakao" | "naver" | "facebook" | "google" | "phone";

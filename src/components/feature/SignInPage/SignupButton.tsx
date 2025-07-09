@@ -5,6 +5,7 @@ export default function SignupButton({
   type,
   font = "body-5",
   iconSize = 24,
+  className,
 }: SignupButtonProps) {
   const buttonTypes = {
     kakao: {
@@ -31,7 +32,7 @@ export default function SignupButton({
     google: {
       icon: "/icons/login/google.svg",
       text: "text-grey-600",
-      background: "bg-white",
+      background: "bg-white border border-border",
       hover: "hover:bg-background",
       phrase: "구글로 시작하기",
     },
@@ -51,8 +52,10 @@ export default function SignupButton({
     w-full h-12
     focus:outline-none disabled:cursor-not-allowed cursor-pointer truncate text-${font}`;
 
+  const buttonClasses = `${typeClasses} ${baseClasses} ${className}`;
+
   return (
-    <button className={`${typeClasses} ${baseClasses}`}>
+    <button className={buttonClasses}>
       <Image
         src={currentStyle.icon}
         alt={type}
