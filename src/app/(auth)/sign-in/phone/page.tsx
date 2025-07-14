@@ -7,6 +7,7 @@ import { useState } from "react";
 import CheckBox from "@/components/commons/CheckBox";
 import UnderlineButton from "@/components/commons/UnderlineButton";
 import Card from "@/components/commons/Card";
+import Button from "@/components/commons/Button";
 
 export interface PhoneSignInForm {
   phone: string;
@@ -124,21 +125,22 @@ export default function PhoneSignInPage() {
       </div>
 
       {/* 로그인 버튼 */}
-      <button
-        type='submit'
-        className='mb-2 w-full rounded-md bg-primary py-2 text-[15px] font-semibold text-white disabled:bg-grey-200'
+      <Button
+        type='checkBasic'
+        text='로그인'
+        width={378}
+        height={56}
         disabled={isSubmitting}
-      >
-        로그인
-      </button>
-      <div className='text-center text-[13px] text-grey-400'>
-        계정이 없으신가요?{" "}
-        <a
-          href='#'
-          className='font-medium text-primary hover:underline'
-        >
-          전화번호로 회원가입
-        </a>
+      />
+
+      <div className='flex items-center justify-center gap-1'>
+        <p className='text-grey-400'>계정이 없으신가요?</p>
+        <Link href='#'>
+          <UnderlineButton
+            type='signupEmail'
+            text='전화번호로 회원가입'
+          />
+        </Link>
       </div>
     </form>
   );
