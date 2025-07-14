@@ -71,6 +71,7 @@ export default function Input({
           type={
             iconType === "password" ? (isVisible ? "text" : "password") : "text"
           }
+          autoComplete='off'
         />
         {iconType === "text" ? (
           <InputDeleteIcon
