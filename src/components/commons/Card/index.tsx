@@ -21,7 +21,7 @@ export default function Card({
       onClick={onClick}
       style={{ width: `${width}px`, height: `${height}px` }}
     >
-      <strong className='text-primary-800'>{title}</strong>
+      <p className='text-primary-800'>{title}</p>
       <p className='text-grey-600'>{description}</p>
     </section>
   );
