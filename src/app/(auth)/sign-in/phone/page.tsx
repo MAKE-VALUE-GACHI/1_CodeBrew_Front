@@ -2,9 +2,8 @@
 
 import { useForm } from "react-hook-form";
 import Input from "@/components/commons/Input";
-import { useState } from "react";
 
-interface PhoneSignInForm {
+export interface PhoneSignInForm {
   phone: string;
   password: string;
   remember: boolean;
@@ -15,16 +14,17 @@ export default function PhoneSignInPage() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    watch,
+    setValue,
   } = useForm<PhoneSignInForm>({
-    defaultValues: { remember: false },
-    mode: "onChange",
+    defaultValues: { remember: false, phone: "", password: "" },
+    mode: "onSubmit",
   });
-  const [phone, setPhone] = useState("");
 
-  const isPhoneError = phone.length > 0 && /\D/.test(phone);
+  const phoneValue = watch("phone") || "";
+  const isPhoneError = phoneValue.length > 0 && /\D/.test(phoneValue);
 
   const onSubmit = (data: PhoneSignInForm) => {
-    // 로그인 처리 로직
     console.log(data);
   };
 
@@ -35,22 +35,29 @@ export default function PhoneSignInPage() {
     >
       <h2 className='mb-2 text-body-2'>전화번호로 시작하기</h2>
 
-      {/* 로그인 부분 */}
       <Input
-        type={isPhoneError ? "error" : "default"}
+        type={errors.phone ? "error" : "default"}
         id='phone'
         label='전화번호'
         placeholder='01012345678'
-        text={phone}
-        setText={value => {
-          if (value.length <= 8) setPhone(value);
-        }}
         font='body-5'
+        text={phoneValue}
+        setText={setValue}
+        register={register("phone", {
+          required: "전화번호를 입력해주세요.",
+          pattern: {
+            value: /^(010|011|016|017|018|019)\d{7,8}$/,
+            message: "올바른 형식의 전화번호를 입력해 주세요.",
+          },
+        })}
       />
       {isPhoneError && (
-        <span className='mt-1 block text-[13px] text-caution'>
+        <span className='text-[14px] text-caution'>
           숫자만 입력 가능합니다.
         </span>
+      )}
+      {errors.phone && !isPhoneError && (
+        <span className='text-[14px] text-caution'>{errors.phone.message}</span>
       )}
 
       {/* 비밀번호 */}
