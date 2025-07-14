@@ -22,6 +22,7 @@ export default function PhoneSignInPage() {
   });
 
   const phoneValue = watch("phone") || "";
+  const passwordValue = watch("password") || "";
   const isPhoneError = phoneValue.length > 0 && /\D/.test(phoneValue);
 
   const onSubmit = (data: PhoneSignInForm) => {
@@ -35,6 +36,7 @@ export default function PhoneSignInPage() {
     >
       <h2 className='mb-2 text-body-2'>전화번호로 시작하기</h2>
 
+      {/* 전화번호 */}
       <Input
         type={errors.phone ? "error" : "default"}
         id='phone'
@@ -61,33 +63,28 @@ export default function PhoneSignInPage() {
       )}
 
       {/* 비밀번호 */}
-      <div>
-        <label
-          htmlFor='password'
-          className='mb-1 block text-[14px]'
-        >
-          비밀번호
-        </label>
-        <input
-          id='password'
-          type='password'
-          placeholder='비밀번호를 입력하세요.'
-          autoComplete='current-password'
-          {...register("password", {
-            required: "비밀번호를 입력해주세요",
-            minLength: {
-              value: 8,
-              message: "8자 이상 입력해 주세요.",
-            },
-          })}
-          className='w-full rounded-md border border-border bg-white px-3 py-2 text-[14px] focus:outline-primary'
-        />
-        {errors.password && (
-          <span className='mt-1 block text-[13px] text-caution'>
-            {errors.password.message}
-          </span>
-        )}
-      </div>
+      <Input
+        type={errors.password ? "error" : "default"}
+        id='password'
+        label='비밀번호'
+        placeholder='비밀번호를 입력해주세요.'
+        font='body-5'
+        iconType='password'
+        text={passwordValue}
+        setText={setValue}
+        register={register("password", {
+          required: "비밀번호를 입력해주세요.",
+          pattern: {
+            value: /^.{8,}$/,
+            message: "8자 이상 입력해주세요.",
+          },
+        })}
+      />
+      {errors.password && (
+        <span className='text-[14px] text-caution'>
+          {errors.password.message}
+        </span>
+      )}
 
       {/* ****************************************************** */}
       {/* 로그인 유지 */}
