@@ -8,12 +8,7 @@ import CheckBox from "@/components/commons/CheckBox";
 import UnderlineButton from "@/components/commons/UnderlineButton";
 import Card from "@/components/commons/Card";
 import Button from "@/components/commons/Button";
-
-export interface PhoneSignInForm {
-  phone: string;
-  password: string;
-  remember: boolean;
-}
+import { PhoneSignInForm } from "./type";
 
 export default function PhoneSignInPage() {
   const {

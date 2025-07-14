@@ -1,4 +1,4 @@
-import { PhoneSignInForm } from "@/app/(auth)/sign-in/phone/page";
+import { PhoneSignInForm } from "@/app/(auth)/sign-in/phone/type";
 import { UseFormSetValue } from "react-hook-form";
 
 export interface InputDeleteIconProps {
