@@ -2,6 +2,11 @@
 
 import { useForm } from "react-hook-form";
 import Input from "@/components/commons/Input";
+import Link from "next/link";
+import { useState } from "react";
+import CheckBox from "@/components/commons/CheckBox";
+import UnderlineButton from "@/components/commons/UnderlineButton";
+import Card from "@/components/commons/Card";
 
 export interface PhoneSignInForm {
   phone: string;
@@ -17,22 +22,24 @@ export default function PhoneSignInPage() {
     watch,
     setValue,
   } = useForm<PhoneSignInForm>({
-    defaultValues: { remember: false, phone: "", password: "" },
+    defaultValues: { phone: "", password: "" },
     mode: "onSubmit",
   });
+  const [isRemember, setIsRemember] = useState(false);
 
   const phoneValue = watch("phone") || "";
   const passwordValue = watch("password") || "";
   const isPhoneError = phoneValue.length > 0 && /\D/.test(phoneValue);
 
   const onSubmit = (data: PhoneSignInForm) => {
+    console.log(isRemember);
     console.log(data);
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className='flex w-full max-w-xs flex-col gap-4'
+      className='flex w-[378px] flex-col gap-4'
     >
       <h2 className='mb-2 text-body-2'>전화번호로 시작하기</h2>
 
@@ -86,25 +93,37 @@ export default function PhoneSignInPage() {
         </span>
       )}
 
-      {/* ****************************************************** */}
-      {/* 로그인 유지 */}
-      {/* ****************************************************** */}
-      <div className='mb-2 flex items-center justify-between'>
-        <label className='flex items-center text-[14px]'>
-          <input
-            type='checkbox'
-            {...register("remember")}
-            className='mr-2 accent-primary'
+      {/* 로그인 유지 & 비밀번호 재설정 */}
+      {isRemember && (
+        <Card
+          title='주의해 주세요!'
+          description='로그인 유지는 개인정보를 위해 개인 기기에서 사용해 주세요.'
+          font='caption'
+          width={378}
+        />
+      )}
+
+      <div className='flex items-center justify-between'>
+        <CheckBox
+          id='remember'
+          text='로그인 유지'
+          containerHeight={24}
+          boxSize={24}
+          isChecked={isRemember}
+          onCheck={() => setIsRemember(!isRemember)}
+          font='body-5'
+        />
+
+        <Link href='#'>
+          <UnderlineButton
+            type='passwordReset'
+            text='비밀번호 재설정'
+            width={100}
           />
-          로그인 유지
-        </label>
-        <a
-          href='#'
-          className='text-[13px] text-grey-400 hover:underline'
-        >
-          비밀번호 재설정
-        </a>
+        </Link>
       </div>
+
+      {/* 로그인 버튼 */}
       <button
         type='submit'
         className='mb-2 w-full rounded-md bg-primary py-2 text-[15px] font-semibold text-white disabled:bg-grey-200'
@@ -112,7 +131,7 @@ export default function PhoneSignInPage() {
       >
         로그인
       </button>
-      <div className='mt-2 text-center text-[13px] text-grey-400'>
+      <div className='text-center text-[13px] text-grey-400'>
         계정이 없으신가요?{" "}
         <a
           href='#'
