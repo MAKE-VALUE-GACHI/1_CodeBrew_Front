@@ -22,13 +22,14 @@ export default function Input({
   id,
   label,
   placeholder,
-  text,
-  setText,
   font = "body-5",
   iconType = "text",
   iconSize = 18,
   isRequired = false,
   className = "",
+  text,
+  setText,
+  register,
 }: InputProps) {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -66,11 +67,11 @@ export default function Input({
           id={id}
           className={typeClasses}
           placeholder={placeholder}
-          value={text}
-          onChange={e => setText(e.target.value)}
           type={
             iconType === "password" ? (isVisible ? "text" : "password") : "text"
           }
+          autoComplete='off'
+          {...register}
         />
         {iconType === "text" ? (
           <InputDeleteIcon

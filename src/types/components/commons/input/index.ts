@@ -1,15 +1,18 @@
+import { PhoneSignInForm } from "@/app/(auth)/sign-in/phone/type";
 import { FontSizeType } from "@/constants/design";
+import { UseFormRegisterReturn, UseFormSetValue } from "react-hook-form";
 
 export interface InputProps {
   type: "default" | "error";
   id: string;
   label: string;
   placeholder: string;
-  text: string;
-  setText: (text: string) => void;
   font?: FontSizeType;
   iconType?: "text" | "password";
   iconSize?: number;
   isRequired?: boolean;
   className?: string;
+  text?: string;
+  setText?: UseFormSetValue<PhoneSignInForm>;
+  register?: UseFormRegisterReturn;
 }

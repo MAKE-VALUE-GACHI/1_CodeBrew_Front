@@ -15,8 +15,8 @@ export default function InputDeleteIcon({
       className='absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer'
       width={iconSize}
       height={iconSize}
-      style={{ display: text.length === 0 ? "none" : "block" }}
-      onClick={() => setText("")}
+      style={{ display: text?.length === 0 ? "none" : "block" }}
+      onClick={() => setText && setText("phone", "")}
     />
   );
 }

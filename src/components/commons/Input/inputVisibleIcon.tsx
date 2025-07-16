@@ -6,9 +6,7 @@ export default function InputVisibleIcon({
   isVisible,
   setIsVisible,
 }: InputVisibleIconProps) {
-  const iconSrc = isVisible
-    ? "./icons/eyeCrossLine.svg"
-    : "./icons/eyeOpen.svg";
+  const iconSrc = isVisible ? "/icons/eyeCrossLine.svg" : "/icons/eyeOpen.svg";
 
   return (
     <Image
